@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :profiles
+  devise_for :admins
   get 'welcome/index'
 
   # Mapeamento, traduzindo o caminho de welcome#index como inicio.
