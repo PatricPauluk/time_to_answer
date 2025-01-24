@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <%# Quando acessamos uma página, a renderização da página por padrão também passa por aqui.
+    Perceba pela mensagem no terminal onde esta rodando o servidor rails:
+    Processing by WelcomeController#index as HTML
+      Rendering welcome/index.html.erb within layouts/application
+      Rendered welcome/index.html.erb within layouts/application (0.3ms)
+    Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+    
+    Este é o layout padrão, mas como pode ler na mensagem acima, o controller quem decide por qual layout
+    a página deve passar antes de redenderizar pro usuário. %>
+    <h1>Passou por layout application</h1>
     <%= yield %>
   </body>
 </html>
