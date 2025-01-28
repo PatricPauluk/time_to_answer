@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :site do
     get 'welcome/index'
   end
-  namespace :profiles_backoffice do
+  namespace :users_backoffice do
     get 'welcome/index'
   end
   namespace :admins_backoffice do
     get 'welcome/index'
   end
-  devise_for :profiles
   devise_for :admins
+  devise_for :users
 
   # Mapeamento, traduzindo o caminho de site/welcome#index como inicio.
   # Acessa como: http://localhost:3000/inicio
