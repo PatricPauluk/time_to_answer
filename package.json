@@ -1,5 +1,10 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PatricPauluk/time_to_answer.git",
+  "author": "Patric Pauluk <patric.pauluk@outlook.com>",
+  "license": "MIT"
 }
