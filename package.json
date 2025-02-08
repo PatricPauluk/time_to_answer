@@ -1,7 +1,15 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "bootstrap": "4.6.0",
+    "chart.js": "2.9.4",
+    "datatables.net-bs4": "1.10.24",
+    "jquery": "3.6.0",
+    "jquery.easing": "1.4.1",
+    "popper.js": "^1.16.1"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/PatricPauluk/time_to_answer.git",
