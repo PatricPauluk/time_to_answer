@@ -13,11 +13,12 @@
 
     <%= stylesheet_link_tag    'application' %>
 
-    <%# No caminho: app/assets/stylesheets/ são especificados onde carregar os demais CSS que não estão aqui %>
-    <%# Carrega: app/assets/stylesheets/admins_backoffice.scss %>
+    <%# No caminho app/assets/stylesheets/ são especificados onde carregar os demais CSS que não estão aqui %>
+    <!--  Referente a app/assets/stylesheets/admins_backoffice.scss 
+    Lembrando que os links referenciando os arquivos css foram declarados neste arquivo -->
     <%= stylesheet_link_tag    'admins_backoffice' %>
 
-    <!-- Especificado em: app/assets/stylesheets/admins_backoffice.scss -->
+    <!-- Especificado em app/assets/stylesheets/admins_backoffice.scss -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Não achei forma de carregar um link no arquivo de stylesheets -->
@@ -25,8 +26,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!--  Especificado em: app/assets/stylesheets/admins_backoffice.scss
-          Mas seu local atual é: lib/assets/stylesheets/sb-admin-2.min.css -->
+    <!--  Especificado em app/assets/stylesheets/admins_backoffice.scss
+          Mas seu local atual é lib/assets/stylesheets/sb-admin-2.min.css -->
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
   </head>
 
@@ -419,19 +420,9 @@
 
       <%= javascript_include_tag 'application' %>
 
-      <!-- Carrega: app/assets/javascripts/admins_backoffice.coffee-->
+      <!-- Referente a app/assets/javascripts/admins_backoffice.coffee
+      Lembrando que os links referenciando os arquivos js foram declarados neste arquivo -->
       <%= javascript_include_tag 'admins_backoffice' %>
-
-
-      <!-- Todos os scripts abaixo foram importados em app/assets/javascripts/admins_backoffice.coffee-->
-      <!-- 
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-      <script src="js/sb-admin-2.min.js"></script>
-      -->
 
   </body>
 
