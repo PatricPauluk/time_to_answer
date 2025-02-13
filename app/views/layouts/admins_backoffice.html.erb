@@ -41,6 +41,7 @@
       </symbol>
     </svg>
 
+    <!-- Escolhe entre tema claro ou escuro -->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
@@ -128,7 +129,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Backoffice Administrativo</a>
 
       <ul class="navbar-nav flex-row d-md-none">
         <li class="nav-item text-nowrap">
@@ -166,6 +167,21 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <svg class="bi"><use xlink:href="#people"/></svg>
+                    Administradores
+                  </a>
+                </li>
+
+                <!-- OPÇÕES DO MENU COM ÍCONES ABAIXO, UTILIZAR APENAS AS NECESSÁRIAS -->
+                <!--
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                    <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                    Dashboard
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#">
                     <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                     Orders
                   </a>
@@ -194,8 +210,11 @@
                     Integrations
                   </a>
                 </li>
+                -->
               </ul>
-
+              
+              <!-- SAVED REPORTS, NO MOMENTO NÃO USADO -->
+              <!--
               <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
                 <span>Saved reports</span>
                 <a class="link-secondary" href="#" aria-label="Add a new report">
@@ -228,21 +247,26 @@
                   </a>
                 </li>
               </ul>
+              -->
 
               <hr class="my-3">
 
               <ul class="nav flex-column mb-auto">
+                <!--
                 <li class="nav-item">
                   <a class="nav-link d-flex align-items-center gap-2" href="#">
                     <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
                     Settings
                   </a>
                 </li>
+                -->
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <%# O código abaixo foi reescrito, realiza logoff do admin %>
+                  <%# link_to 'Fazer logoff [Administrador]', destroy_admin_session_path, method: :delete %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link d-flex align-items-center gap-2" do %>
                     <svg class="bi"><use xlink:href="#door-closed"/></svg>
-                    Sign out
-                  </a>
+                    Fazer logoff [Administrador]
+                  <% end %>
                 </li>
               </ul>
             </div>

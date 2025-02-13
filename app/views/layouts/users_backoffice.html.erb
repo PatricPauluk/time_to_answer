@@ -238,10 +238,12 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <%# O código abaixo foi reescrito, realiza logoff do usuário %>
+                  <%# link_to 'Fazer logoff [Usuário]', destroy_user_session_path, method: :delete %>
+                  <%= link_to destroy_user_session_path, method: :delete, class:"nav-link d-flex align-items-center gap-2" do %>
                     <svg class="bi"><use xlink:href="#door-closed"/></svg>
-                    Sign out
-                  </a>
+                    Fazer logoff [Usuário]
+                  <% end %>
                 </li>
               </ul>
             </div>
