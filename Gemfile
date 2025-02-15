@@ -45,6 +45,14 @@ gem 'rails-i18n', '~> 5.1'
 # Spinner no terminal, configurado em lib/tasks/dev.rake
 gem 'tty-spinner'
 
+# Gerar dados fake para testes no banco
+gem 'faker'
+
+# Duas opções para melhor visualização de dados utilizando o Rails Console
+gem 'pry-rails'
+# gem 'awesome_print'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,7 +1,8 @@
 namespace :dev do
 
-  DEFAULT_PASSWORD = 123456
+  DEFAULT_PASSWORD = 111111
 
+  # Task principal que "reseta" o banco de dados e cria o usuário e admin padrão do sistema
   desc "Configura o ambiente de desenvolvimento:" # Descrição
   task setup: :environment do # call: rails dev:setup
     if Rails.env.development?
@@ -13,6 +14,7 @@ namespace :dev do
       show_spinner("Criando Banco de Dados...")             { %x(rails db:create) } 
       show_spinner("Migrando Tabelas...")                   { %x(rails db:migrate) }
       show_spinner("Cadastrando o Administrador Padrão...") { %x(rails dev:add_default_admin) }
+      # show_spinner("Cadastrando Administradores Extras...") { %x(rails dev:add_extras_admin) }
       show_spinner("Cadastrando o Usuário Padrão...")       { %x(rails dev:add_default_user) }
     else
       puts "Você não esta em ambiente de desenvolvimento."
@@ -35,6 +37,18 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
+  end
+
+  # Task para criar 10 usuários aleatórios administradores no sistema
+  desc "Adiciona o administradores extras" 
+  task add_extras_admin: :environment do # call: rails dev:add_extras_admin
+    10.times do |i|
+      Admin.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD
+      )
+    end
   end
 
   # -----------------------------------------------------------------------------
