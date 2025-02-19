@@ -22,7 +22,7 @@ namespace :dev do
   end
 
   desc "Adiciona o administrador padrão"
-  task add_default_admin: :environment do
+  task add_default_admin: :environment do # call: rails dev:add_default_admin
     Admin.create!(
       email: 'admin@admin.com',
       password: DEFAULT_PASSWORD,
@@ -31,7 +31,7 @@ namespace :dev do
   end
 
   desc "Adiciona o usuário padrão"
-  task add_default_user: :environment do
+  task add_default_user: :environment do # call: rails dev:add_default_user
     User.create!(
       email: 'user@user.com',
       password: DEFAULT_PASSWORD,
