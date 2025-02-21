@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  namespace :admins_backoffice do
+  namespace :admins_backoffice do # referente a app/controllers/admins_backoffice
     get 'admins/index'
+    # get 'admins/edit/:id' to: 'admins#edit' # referente app/controllers/admins_backoffice/admins_controller.rb || e a açõo de edit
+    resources :admins, only: [:index] # cria os helpers de crud, mas especifica apenas o index
   end
   namespace :site do
     get 'welcome/index'
