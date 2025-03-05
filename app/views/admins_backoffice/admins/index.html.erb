@@ -15,7 +15,10 @@
                 <td><%= admin.id %></td>
                 <td><%= admin.email %></td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm">Editar</button>
+                    <!-- Link/botão para editar o admin, capturando o id do mesmo (o parâmetro seria o mesmo que admin.id) -->
+                    <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-sm" do %>
+                        Editar
+                    <% end %>
                     <button type="button" class="btn btn-danger btn-sm">Apagar</button>
                 </td>
             </tr>

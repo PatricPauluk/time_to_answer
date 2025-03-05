@@ -4,6 +4,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   def edit
-    # passos
+    # Recebe por parâmetro o ID de um admin e busca-o no banco de dados
+    @admin = Admin.find(params[:id])
   end
 end
