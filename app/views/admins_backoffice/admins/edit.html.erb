@@ -1,3 +1,25 @@
 <h1>Editando Admin</h1>
-
+<p>Find me in app/views/admins_backoffice/admins/edit.html.erb</p>
+<%# Mostra os dados de admin %>
 <%= @admin.inspect %>
+
+<%# admins_backoffice é o nome do namespace %>
+<%= form_with(model: [ :admins_backoffice, @admin ], local: true) do |form| %>
+
+    <div class="mb-3 mt-3">
+        <%= form.label :email, class:"form-label" %>
+        <%= form.text_field :email, class:"form-control", placeholder:"Email do administrador" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password, class:"form-label" %>
+        <%= form.password_field :password, class:"form-control", placeholder:"Senha" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password_confirmation, class:"form-label" %>
+        <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirmação da senha" %>
+    </div>
+    <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Salvar alterações</button>
+  </div>
+
+<% end %>
