@@ -3,6 +3,20 @@
 <%# Mostra os dados de admin %>
 <%= @admin.inspect %>
 
+<%# Exibe uma lista de erros ao usuário, caso houver %>
+<% if @admin.errors.any? %>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            <ul>
+                <% @admin.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>
+
 <%# admins_backoffice é o nome do namespace %>
 <%= form_with(model: [ :admins_backoffice, @admin ], local: true) do |form| %>
 
