@@ -9,6 +9,12 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
   
   def update
+
+    # Caso os campos de senha e confirmação de senha não forem preenchidos, remove as chaves deles, possibilitanto atualizar só o email
+    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+      params[:admin].extract!(:password, :password_confirmation)
+    end
+
     @admin = Admin.find(params[:id])
 
     # O require é necessário para permitir as chates: email, password e senha, pois estão dentro de admin
