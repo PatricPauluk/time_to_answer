@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
   namespace :admins_backoffice do # referente a app/controllers/admins_backoffice
     get 'welcome/index' # Dashboard
-    resources :admins, only: [:index, :edit, :update] # cria os helpers de crud, mas especifica apenas o necessário
+    # resources :admins, only: [:index, :edit, :update, :new] # cria os helpers de crud, mas especifica apenas o necessário
+    resources :admins, except: [:delete] # cria os helpers de crud, menos delete
   end
   devise_for :admins
   devise_for :users

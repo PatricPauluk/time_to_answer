@@ -2,15 +2,32 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :verify_password, only: [:update]
   before_action :set_admin, only: [:edit, :update]
 
+  # OBS: As funções abaixo são chamadas de ACTION
+
   def index
     @admins = Admin.all
+  end
+
+  def new
+    @admin = Admin.new
+  end
+
+  def create
+    # Cria um admin recebendo os parâmetros
+    @admin = Admin.new(params_admin)
+    # A action de criar usuário é muito semelhante com a de atualizar
+    if @admin.save
+      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
+    else
+      # Caso não der certo, volta para a página new
+      render :new
+    end
   end
 
   def edit
   end
   
   def update
-    # Por enquanto, ao atualizar os dados de usuário PRECISAMOS informar login e senha, mas será consertado.
     if @admin.update(params_admin)
       redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
     else
