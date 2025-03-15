@@ -21,11 +21,13 @@
                 <td><%= admin.id %></td>
                 <td><%= admin.email %></td>
                 <td>
-                    <!-- Link/botão para editar o admin, capturando o id do mesmo (o parâmetro seria o mesmo que admin.id) -->
+                    <!-- Link/botão para editar o admin, capturando o id do mesmo (o parâmetro seria o mesmo que admin.id), e o mesmo vale para o botão apagar  -->
                     <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-sm" do %>
                         Editar
                     <% end %>
-                    <button type="button" class="btn btn-danger btn-sm">Apagar</button>
+                    <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-sm", data: { confirm: "Deseja excluir este administrador?" } do %>
+                        Apagar
+                    <% end %>
                 </td>
             </tr>
         <% end %>
