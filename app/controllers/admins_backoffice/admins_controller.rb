@@ -17,7 +17,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
     @admin = Admin.new(params_admin)
     # A action de criar usuário é muito semelhante com a de atualizar
     if @admin.save
-      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
+      redirect_to admins_backoffice_admins_path, notice: "Administrador criado com sucesso!"
     else
       # Caso não der certo, volta para a página new
       render :new

@@ -5,3 +5,5 @@
 //= require chart.js/dist/chart.umd
 //= require dashboard
 //= require color-modes
+//= require jquery/dist/jquery
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl

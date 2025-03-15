@@ -204,5 +204,25 @@
     Lembrando que os links referenciando os arquivos js foram declarados neste arquivo -->
     <%= javascript_include_tag 'admins_backoffice' %>
 
+    <% if notice %>
+      <script>
+        console.log('passei aqui');
+        $.bootstrapGrowl(" <%= notice %>", {
+          type: 'info', // (null, 'info', 'error', 'success')
+          align: 'right', // ('left', 'right', or 'center')
+          allow_dismiss: true,
+          stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      </script>
+    <% end %>
+    <!--
+    OBS: a tag <script> pode ser substituida por 
+    <%# javascript_tag do %>
+      # ... código
+    <%# end %>
+
+    Mas resolvi deixar como esta pra visualizar as letras coloridas
+    -->
+
   </body>
 </html>

@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.4.tgz#4d4ff677e1609214fc71c580125ddddd86abcabf"
   integrity sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==
 
+bootstrap-growl-ifightcrime@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-growl-ifightcrime/-/bootstrap-growl-ifightcrime-1.1.0.tgz#3f83c12bd29281315580a05ec13841d60031539e"
+  integrity sha512-GDHa1aB/nQWaSZQF0dIWnDFDFsdUGcExYR83scVzDXWxjK/W0ZWSXKxK1wvvQeOGgKaLmAY8MLdxCqYc/1DnxQ==
+
 bootstrap@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.3.tgz#de35e1a765c897ac940021900fcbb831602bac38"
@@ -18,3 +23,8 @@ chart.js@4.3.2:
   integrity sha512-pvQNyFOY1QmbmIr8oDORL16/FFivfxj8V26VFpFilMo4cNvkV5WXLJetDio365pd9gKUHGdirUTbqJfw8tr+Dg==
   dependencies:
     "@kurkle/color" "^0.3.0"
+
+jquery@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
+  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
