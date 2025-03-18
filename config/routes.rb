@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     get 'welcome/index' # Dashboard
     # resources :admins, only: [:index, :edit, :update, :new] # cria os helpers de crud, mas especifica apenas o necessário
     # resources :admins, except: [:delete] # cria os helpers de crud, menos delete
-    resources :admins # cria os helpers de crud
+    resources :admins # cria os helpers de crud para admins
+    resources :subjects
   end
   devise_for :admins
   devise_for :users
