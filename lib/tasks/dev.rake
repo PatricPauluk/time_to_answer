@@ -1,6 +1,11 @@
 namespace :dev do
 
   DEFAULT_PASSWORD = 111111
+  # Caminho padrão para arquivos temporários
+  # Rails.root pega  o caminho da raiz do sistema, e os outros vai seguindo as pastas
+  # O caminho poderia ser escrito diretamente: lib/tasks/dev.rake ...
+  # ... Porém, o File.join concatena os caminhos para nós, garantindo mais precisão
+  DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
   # Task principal que "reseta" o banco de dados e cria o usuário e admin padrão do sistema
   desc "Configura o ambiente de desenvolvimento:" # Descrição
@@ -16,6 +21,7 @@ namespace :dev do
       show_spinner("Cadastrando o Administrador Padrão...") { %x(rails dev:add_default_admin) }
       # show_spinner("Cadastrando Administradores Extras...") { %x(rails dev:add_extras_admin) }
       show_spinner("Cadastrando o Usuário Padrão...")       { %x(rails dev:add_default_user) }
+      show_spinner("Cadastrando Assuntos Padrão...")       { %x(rails dev:add_subjects) }
     else
       puts "Você não esta em ambiente de desenvolvimento."
     end
@@ -51,6 +57,16 @@ namespace :dev do
     end
   end
 
+  desc "Adiciona assuntos padrão"
+  task add_subjects: :environment do # call: rails dev:add_subjects
+    file_name = 'subjects.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+    # Lê cada linha do arquivo e cria um assunto
+    File.open(file_path, 'r').each do |line|
+      Subject.create!(description: line.strip) # .strip retira os espaços em branco antes e depois da linha
+    end
+  end
+  
   # -----------------------------------------------------------------------------
   
   # Tudo abaixo de private é privado apenas este arquivo
