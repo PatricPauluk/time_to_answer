@@ -4,4 +4,8 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+
+  # Kaminari (outra forma de paginar)
+  # paginates_per 10
 end

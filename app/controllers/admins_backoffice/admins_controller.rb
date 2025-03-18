@@ -6,7 +6,9 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   # OBS: As funções abaixo são chamadas de ACTION
 
   def index
-    @admins = Admin.all
+    # @admins = Admin.all
+    # Código abaixo utilizando Kaminari para paginação
+    @admins = Admin.all.page(params[:page]).per(10)
   end
 
   def new
