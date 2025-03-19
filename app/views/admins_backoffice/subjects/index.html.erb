@@ -1,7 +1,7 @@
 <h1>Listando Subjects</h1>
 <p>AdminsBackoffice::Subject#index</p>
-<p>Find me in app/views/admins_backoffice/admins/index.html.erb</p>
-<!-- Botão para criar um novo admin -->
+<p>Find me in app/views/admins_backoffice/subjects/index.html.erb</p>
+<!-- Botão para criar um novo subject -->
 <%= link_to new_admins_backoffice_subject_path, class:"btn btn-success" do %>
     Adicionar
 <% end %>
@@ -35,5 +35,5 @@
         </tbody>
     </table>
     <%# Como mágica, implementa a paginação para o nosso app %>
-    <%# paginate @admins %>
+    <%= paginate @subjects %>
 </div>

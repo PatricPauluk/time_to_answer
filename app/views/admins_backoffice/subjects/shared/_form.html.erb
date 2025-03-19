@@ -1,14 +1,14 @@
-<h1><%= "#{action_message} Administrador" %></h1>
+<h1><%= "#{action_message} Assunto" %></h1>
 <%# Mostra os dados de admin %>
-<%= @admin.inspect %>
+<%= @subject.inspect %>
 
 <%# Exibe uma lista de erros ao usuário, caso houver %>
-<% if @admin.errors.any? %>
+<% if @subject.errors.any? %>
     <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
             <ul>
-                <% @admin.errors.full_messages.each do |message| %>
+                <% @subject.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
@@ -16,20 +16,12 @@
     </div>
 <% end %>
 
-<%# admins_backoffice é o nome do namespace, consegue identificar que o propósito da página (criar ou editar um admin) atrávés do nome da ação (action_name) %>
-<%= form_with(model: [ :admins_backoffice, @admin ], local: true) do |form| %>
+<%# admins_backoffice é o nome do namespace, consegue identificar que o propósito da página (criar ou editar) atrávés do nome da ação (action_name) %>
+<%= form_with(model: [ :admins_backoffice, @subject ], local: true) do |form| %>
 
     <div class="mb-3 mt-3">
-        <%= form.label :email, class:"form-label" %>
-        <%= form.text_field :email, class:"form-control", placeholder:"Email do administrador" %>
-    </div>
-    <div class="mb-3">
-        <%= form.label :password, class:"form-label" %>
-        <%= form.password_field :password, class:"form-control", placeholder:"Senha" %>
-    </div>
-    <div class="mb-3">
-        <%= form.label :password_confirmation, class:"form-label" %>
-        <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirmação da senha" %>
+        <%= form.label :description, class:"form-label" %>
+        <%= form.text_field :description, class:"form-control", placeholder:"Nome do assunto/área" %>
     </div>
     <div class="col-auto">
     <button type="submit" class="btn btn-primary mb-3">Salvar</button>
