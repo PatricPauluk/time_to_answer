@@ -21,7 +21,8 @@ namespace :dev do
       show_spinner("Cadastrando o Administrador Padrão...") { %x(rails dev:add_default_admin) }
       # show_spinner("Cadastrando Administradores Extras...") { %x(rails dev:add_extras_admin) }
       show_spinner("Cadastrando o Usuário Padrão...")       { %x(rails dev:add_default_user) }
-      show_spinner("Cadastrando Assuntos Padrão...")       { %x(rails dev:add_subjects) }
+      show_spinner("Cadastrando Assuntos Padrão...")        { %x(rails dev:add_subjects) }
+      show_spinner("Cadastrando Perguntas e Respostas...")  { %x(rails dev:add_answers_and_questions) }
     else
       puts "Você não esta em ambiente de desenvolvimento."
     end
@@ -64,6 +65,18 @@ namespace :dev do
     # Lê cada linha do arquivo e cria um assunto
     File.open(file_path, 'r').each do |line|
       Subject.create!(description: line.strip) # .strip retira os espaços em branco antes e depois da linha
+    end
+  end
+
+  desc "Adicionar questões e respostas"
+  task add_answers_and_questions: :environment do # call: rails dev:add_answers_and_questions
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", # Gera uma pergunta (o parágrafo é só pra aumentar o tamanho)
+          subject: subject # Atribui o id do assunto ao questionário
+        )
+      end
     end
   end
   
