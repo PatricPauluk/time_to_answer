@@ -25,7 +25,10 @@
     </div>
     <div class="mb-3 mt-3">
         <%= form.label :subject, class:"form-label" %>
-        <%= form.collection_select(:subject_id, Subject.all.order(:description), :id, :description, {}, { class:"form-control" } ) %>
+        <%# Os parâmetros passados em form collect: nome do objeto (@question, declarado no form with), ... %>
+        <%# ... nome do método (campo, :subject_id), de onde vem os dados (@subjects), valor a ser seleciondo (:id), ... %>
+        <%# ... o que será exibido (:description). O restente do código é para possibilitar colcocar uma classe %>
+        <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, { class:"form-control" } ) %>
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Salvar</button>
