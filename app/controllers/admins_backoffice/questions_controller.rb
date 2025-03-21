@@ -3,7 +3,9 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     before_action :get_subjects, only: [:edit, :new]
     
     def index
-        @questions = Question.all.order(:description).page(params[:page])
+        # @questions = Question.all.order(:description).page(params[:page])
+        # includes: pega o relacionamento entre as tabelas question e subject para reduzir as requisicoes
+        @questions = Question.includes(:subject).order(:description).page(params[:page])
     end
 
     def new
