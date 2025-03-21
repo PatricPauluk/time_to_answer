@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     # resources :admins, except: [:delete] # cria os helpers de crud, menos delete
     resources :admins # cria os helpers de crud para admins
     resources :subjects
+    resources :questions
   end
   devise_for :admins
   devise_for :users

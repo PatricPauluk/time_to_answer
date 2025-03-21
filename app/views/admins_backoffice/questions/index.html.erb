@@ -1,0 +1,40 @@
+<h1>Listando Questões</h1>
+<p>AdminsBackoffice::Questions#index</p>
+<p>Find me in app/views/admins_backoffice/questions/index.html.erb</p>
+<!-- Botão para criar um novo question -->
+<%= link_to new_admins_backoffice_question_path, class:"btn btn-success" do %>
+    Adicionar
+<% end %>
+
+<div class="table-responsive small">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Assunto</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Listar todos os questions do sistema -->
+        <% @questions.each do |question| %>
+            <tr>
+                <td><%= question.id %></td>
+                <td><%= question.description.truncate(80) %></td> <%# .truncate limita os caracteres exibidos %>
+                <td><%= question.subject.description %></td> <%# pega a descrição referente ao id de subject %>
+                <td>
+                    <%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-primary btn-sm" do %>
+                        Editar
+                    <% end %>
+                    <%= link_to admins_backoffice_question_path(question), method: :delete, class:"btn btn-danger btn-sm", data: { confirm: "Deseja excluir esta questão?" } do %>
+                        Apagar
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+    <%# Como mágica, implementa a paginação para o nosso app %>
+    <%= paginate @questions %>
+</div>
