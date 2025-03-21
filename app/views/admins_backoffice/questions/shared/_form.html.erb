@@ -1,14 +1,14 @@
-<h1><%= "#{action_message} Assunto" %></h1>
-<%# Mostra os dados de admin %>
-<%= @subject.inspect %>
+<h1><%= "#{action_message} Questão" %></h1>
+<%# Mostra os dados de questão %>
+<%= @question.inspect %>
 
 <%# Exibe uma lista de erros ao usuário, caso houver %>
-<% if @subject.errors.any? %>
+<% if @question.errors.any? %>
     <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
             <ul>
-                <% @subject.errors.full_messages.each do |message| %>
+                <% @question.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
@@ -17,14 +17,18 @@
 <% end %>
 
 <%# admins_backoffice é o nome do namespace, consegue identificar que o propósito da página (criar ou editar) atrávés do nome da ação (action_name) %>
-<%= form_with(model: [ :admins_backoffice, @subject ], local: true) do |form| %>
+<%= form_with(model: [ :admins_backoffice, @question ], local: true) do |form| %>
 
     <div class="mb-3 mt-3">
         <%= form.label :description, class:"form-label" %>
-        <%= form.text_field :description, class:"form-control", placeholder:"Nome do assunto/área" %>
+        <%= form.text_area :description, class:"form-control", placeholder:"Descrição da pergunta...", rows:5 %>
+    </div>
+    <div class="mb-3 mt-3">
+        <%= form.label :subject, class:"form-label" %>
+        <%= form.collection_select(:subject_id, Subject.all.order(:description), :id, :description, {}, { class:"form-control" } ) %>
     </div>
     <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Salvar</button>
-  </div>
+        <button type="submit" class="btn btn-primary mb-3">Salvar</button>
+    </div>
 
 <% end %>

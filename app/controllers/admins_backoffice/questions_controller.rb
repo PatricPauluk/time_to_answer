@@ -12,7 +12,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     def create
         @question = Question.new(params_question)
         if @question.save
-            redirect_to admins_backoffice_questions_path, notice: "Questão criada com sucesso!" # ...talvez seja: admins_backoffice_question_path
+            redirect_to admins_backoffice_questions_path, notice: "Questão criada com sucesso!"
         else
             render :new
         end
@@ -40,7 +40,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
     private
 
     def params_question
-        params.require(:question).permit(:description)
+        params.require(:question).permit(:description, :subject_id)
     end
 
     def set_question
