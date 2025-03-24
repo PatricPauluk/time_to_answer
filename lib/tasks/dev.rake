@@ -71,11 +71,28 @@ namespace :dev do
   desc "Adicionar questões e respostas"
   task add_answers_and_questions: :environment do # call: rails dev:add_answers_and_questions
     Subject.all.each do |subject|
+      # Cria 5 a 10 perguntas para cada assunto
       rand(5..10).times do |i|
-        Question.create!(
+        params = { question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", # Gera uma pergunta (o parágrafo é só pra aumentar o tamanho)
-          subject: subject # Atribui o id do assunto ao questionário
-        )
+          subject: subject, # Atribui o id do assunto ao questionário
+          answers_attributes: [] # Cria uma lista vazia de respostas para ser preenchida posteriormente
+        }}
+
+        # Cria as respostas, sendo 2 a 5 respostas para cada pergunta
+        rand(2..5).times do |j|
+          params[:question][:answers_attributes].push( # Adiciona as respostas ao array de respostas
+            {
+              description: Faker::Lorem.sentence,
+              correct: false
+            }
+          )
+        end
+
+        index = rand(params[:question][:answers_attributes].size) # Gera um número aleatório entre 0 e o tamanho do array de respostas
+        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true } # Substitui a resposta correta pelo index gerado
+
+        Question.create!(params[:question])
       end
     end
   end
