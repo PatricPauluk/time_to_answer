@@ -73,34 +73,47 @@ namespace :dev do
     Subject.all.each do |subject|
       # Cria 5 a 10 perguntas para cada assunto
       rand(5..10).times do |i|
-        params = { question: {
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", # Gera uma pergunta (o parágrafo é só pra aumentar o tamanho)
-          subject: subject, # Atribui o id do assunto ao questionário
-          answers_attributes: [] # Cria uma lista vazia de respostas para ser preenchida posteriormente
-        }}
-
-        # Cria as respostas, sendo 2 a 5 respostas para cada pergunta
-        rand(2..5).times do |j|
-          params[:question][:answers_attributes].push( # Adiciona as respostas ao array de respostas
-            {
-              description: Faker::Lorem.sentence,
-              correct: false
-            }
-          )
-        end
-
-        index = rand(params[:question][:answers_attributes].size) # Gera um número aleatório entre 0 e o tamanho do array de respostas
-        params[:question][:answers_attributes][index] = { description: Faker::Lorem.sentence, correct: true } # Substitui a resposta correta pelo index gerado
-
-        Question.create!(params[:question])
+        params = create_question_params(subject) # Cria os parâmetros para criar uma pergunta
+        answers_array = params[:question][:answers_attributes] # Array de respostas
+        add_answers(answers_array) # Cria as respostas
+        elect_true_answer(answers_array) # Eleciona a resposta correta
+        Question.create!(params[:question]) # Cria a pergunta
       end
     end
   end
   
-  # -----------------------------------------------------------------------------
-  
-  # Tudo abaixo de private é privado apenas este arquivo
+  # Tudo abaixo de private é privado apenas este arquivo -----------------------------------------------------------------------------
   private
+
+  # Cria os parâmetros para criar uma pergunta
+  # Subject.all.sample caso não seja passado um assunto como parâmetro, ele pega um aleatório
+  def create_question_params(subject = Subject.all.sample)
+    { question: {
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", # Gera uma pergunta (o parágrafo é só pra aumentar o tamanho)
+          subject: subject, # Atribui o id do assunto ao questionário
+          answers_attributes: [] # Cria uma lista vazia de respostas para ser preenchida posteriormente
+      }
+    }
+  end
+
+  # Cria 2 a 5 respostas erradas para uma pergunta
+  def add_answers(answers_array = [])
+    rand(2..5).times do |j|
+      answers_array.push(create_answer_params) 
+    end
+  end
+
+  # Cria os parâmetros para criar uma resposta correta ou errada
+  def create_answer_params(correct = false)
+    { description: Faker::Lorem.sentence, correct: correct }
+  end
+  
+  # Eleciona a resposta correta
+  def elect_true_answer(answers_array = [])
+    selected_index = rand(answers_array.size) # Gera um número aleatório entre 0 e o tamanho do array de respostas (no caso, a quantidade de respostas geradas)
+    answers_array[selected_index] = create_answer_params(true) # Substitui a resposta correta pelo index gerado
+  end
+
   # Função para efeito de spinner no terminal
   def show_spinner(msg_start, msg_end = "Feito!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}", format: :pulse_2)
