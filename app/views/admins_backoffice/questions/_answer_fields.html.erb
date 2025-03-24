@@ -1,0 +1,7 @@
+<%# Obrigatoriamente precisa da classe nested-fields (campo de respostas) %>
+<div class="nested-fields mb-3">
+    <%= f.label :description, class:"form-label" %>
+    <%= f.text_area :description, class:"form-control", style:"width: 50%;", rows:1 %>
+    <%= f.check_box :correct, class:"form-label mt-3" %> Correta?
+    <%= link_to_remove_association('ㅤㅤ', f, class:"btn-close", style:"text-decoration: none;") %>
+</div>

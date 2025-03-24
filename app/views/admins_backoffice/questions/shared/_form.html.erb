@@ -23,12 +23,22 @@
         <%= form.label :description, class:"form-label" %>
         <%= form.text_area :description, class:"form-control", placeholder:"Descrição da pergunta...", rows:5 %>
     </div>
-    <div class="mb-3 mt-3">
+    <div class="mb-4 mt-3">
         <%= form.label :subject, class:"form-label" %>
         <%# Os parâmetros passados em form collect: nome do objeto (@question, declarado no form with), ... %>
         <%# ... nome do método (campo, :subject_id), de onde vem os dados (@subjects), valor a ser seleciondo (:id), ... %>
         <%# ... o que será exibido (:description). O restente do código é para possibilitar colcocar uma classe %>
         <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, { class:"form-control" } ) %>
+    </div>
+    <%# Abaixo se trata de uma tabela aninhada para preenchimento (no caso, as respostas das perguntas) %>
+    <div id='answers'>
+        <%# Utiliza a tabela answers para gerar uma resposta %>
+        <%= form.fields_for :answers do |answer| %>
+            <%# Renderiza o _answer_fields.html.erb, passando a variável answer por parâmetro (sendo ela, chamada de f) %>
+            <%= render partial: "answer_fields", locals: { f: answer } %>
+        <% end %>
+        <%# Botão para adicionar uma resposta %>
+        <%= link_to_add_association 'Adicionar Resposta', form, :answers, class:"btn btn-success btn-sm mb-2" %>
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Salvar</button>
