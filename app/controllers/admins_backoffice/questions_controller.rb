@@ -42,8 +42,10 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
 
     private
 
+    # Permite receber os parâmetros da questão e das respostas (id e _destroy devem ser obrigatorios)
     def params_question
-        params.require(:question).permit(:description, :subject_id)
+        params.require(:question).permit(:description, :subject_id,
+               answers_attributes: [:id, :description, :correct, :_destroy])
     end
 
     def set_question

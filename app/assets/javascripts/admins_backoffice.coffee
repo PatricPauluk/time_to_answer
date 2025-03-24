@@ -7,3 +7,4 @@
 //= require color-modes
 //= require jquery/dist/jquery
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+//= require cocoon
