@@ -11,9 +11,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# No caminho app/assets/stylesheets/ são especificados onde carregar os demais CSS que não estão aqui %>
     <%= stylesheet_link_tag    'application' %>
 
-    <%# No caminho app/assets/stylesheets/ são especificados onde carregar os demais CSS que não estão aqui %>
     <!--  Referente a app/assets/stylesheets/admins_backoffice.scss 
     Lembrando que os links referenciando os arquivos css foram declarados neste arquivo -->
     <%= stylesheet_link_tag    'admins_backoffice' %>
@@ -153,7 +153,7 @@
         <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
           <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+              <h5 class="offcanvas-title" id="sidebarMenuLabel">Time to Answer</h5>
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
@@ -200,14 +200,15 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Passou por layout admins_backoffice</h1>
             <%# O uso desse layout é especificado em app/controllers/admins_backoffice/welcome_controller.rb %>
+            <h1 class="h2">Passou por layout admins_backoffice</h1>
           </div>
           <p>Nome da ação: <%= action_name %></p>
           <%= yield %>
         </main>
       </div>
     </div>
+    
     <%= javascript_include_tag 'application' %>
 
     <!-- Refernte a app/assets/javascripts/users_backoffice.coffee

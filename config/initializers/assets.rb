@@ -13,10 +13,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 
 # Arquivos em /app/assets devem ser pré-compilados aqui
-Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_backoffice.css users_backoffice.js users_backoffice.css )
+Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_backoffice.css admin_devise.css admin_devise.js users_backoffice.js users_backoffice.css )
 
 # Arquivos em /lib/assets devem ser pré-compilados aqui
-Rails.application.config.assets.precompile += %w( color-modes.js dashboard.js dashboard.css dashboard.rtl.css custom.css )
+Rails.application.config.assets.precompile += %w( color-modes.js dashboard.js dashboard.css dashboard.rtl.css custom.css sign-in.css bootstrap-logo.svg )
 
 # Arquivos em /vendor/assets devem ser pré-compilados aqui
 # Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery.js bootstrap-4.3.1/bootstrap.js bootstrap-4.3.1/bootstrap.css )
