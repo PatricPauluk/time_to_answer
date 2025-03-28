@@ -4,12 +4,9 @@ class ApplicationController < ActionController::Base
     protected
     
     # devise_controller? verifica se o controller atual pertence ao devise
-    # resource_class verifica qual classe de devise o controller atual pertence (Admin ou User)
+    # resource_class verifica qual classe de devise o controller atual pertence (admin ou user) ...
+    # ... e retorna o layout correspondente
     def layout_by_resource
-        if devise_controller? && resource_class == Admin
-            "admin_devise"
-        else
-            "application"
-        end
+        devise_controller? ? "#{resource_class.to_s.downcase}_devise" : "application"
     end
 end

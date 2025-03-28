@@ -9,11 +9,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application' %>
-    <%= stylesheet_link_tag    'admin_devise' %>
+    <%= stylesheet_link_tag    'user_devise' %>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
-    <%# VERIFICAR ESSES 2 LINKS ABAIXO %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     
     <%# TENTAR CRIAR UM ARQUIVO PARA ESSE CSS %>
@@ -95,12 +94,15 @@
         display: block !important;
       }
     </style>
+
+    <%# VERIFICAR ESSE LINK ABAIXO %>
+    <link href="sign-in.css" rel="stylesheet">
   </head>
 
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'admin_devise' %>
+    <%= javascript_include_tag 'user_devise' %>
   </body>
 </html>
