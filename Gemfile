@@ -23,6 +23,11 @@ gem 'kaminari-i18n'
 # Formularios aninhados
 gem 'cocoon'
 
+# Melhor visualização do banco de dados
+group :development do
+  gem 'rails_db'
+end
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
