@@ -49,11 +49,6 @@
   </ul>
 </div>
 
-<%# Exibe mensagens como email ou senha inválidos %>
-<% flash.each do |key, value| %>
-  <div class="flash <%= key %>"><%= value %></div>
-<% end %>
-
 <main class="form-signin w-100 m-auto">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= image_tag 'bootstrap-logo.svg', class:"mb-4", alt:"", width:"72", height:"57" %>
@@ -78,9 +73,17 @@
 
     <div class="actions">
       <%= f.submit "Log in", class:"btn btn-primary w-100 py-2" %>
+      <%= link_to "Voltar", site_welcome_index_path, class:"btn btn-link" %>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
     </div>
-    
+  <% end %>
+
+  <%# Exibe mensagens como email ou senha inválidos %>
+  <% flash.each do |key, value| %>
+    <% puts value %>
+    <div class="alert alert-warning flash <%= key %>" role="alert">
+      <%= value %>
+    </div>
   <% end %>
   <%= render "users/shared/links" %>
 </main>
