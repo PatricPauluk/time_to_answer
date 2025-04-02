@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
-    
+  <head>
     <%= stylesheet_link_tag    'application' %>
     <%= stylesheet_link_tag    'site' %>
 
@@ -11,8 +10,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -93,7 +90,6 @@
       }
     </style>
 
-    
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -146,7 +142,6 @@
         </li>
       </ul>
     </div>
-
     
 <main>
   <div class="container py-4">
@@ -183,6 +178,15 @@
         <%= link_to users_backoffice_welcome_index_path, class:"btn btn-primary btn-md mt-2" do %>
             Página Usuários
         <% end %>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Faça uma busca" aria-label="Faça uma busca" aria-describedby="button-addon">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon">Pesquisar</button>
+        </div>
       </div>
     </div>
 
