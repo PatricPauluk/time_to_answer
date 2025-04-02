@@ -9,4 +9,7 @@ class Question < ApplicationRecord
 
   # aceita respostas aninhadas, mas rejeita se todas estiverem em branco, permite apagar
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true 
+
+  # Kaminari
+  paginates_per 5
 end

@@ -186,6 +186,19 @@
       </div>
     </div>
 
+    <% @questions.each do |question| %>
+      <div class="card border-light mb-3">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-body-secondary"><%= question.description %></h6>
+          <ul>
+            <% question.answers.each do |answer| %>
+              <li class="card-text"><%= answer.description %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
     <footer class="pt-3 mt-4 text-body-secondary border-top">
       &copy; 2025
     </footer>
