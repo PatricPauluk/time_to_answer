@@ -19,14 +19,14 @@ class Question < ApplicationRecord
 
   # Exemplo SQL:
   # SELECT  "questions".* FROM "questions" WHERE (lower(description) LIKE '%voluptatum%')
-  def self.search(page, term)
+  scope :_search_, -> (page, term) {
     Question.includes(:answers).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)
-  end
+  }
 
   # Exemplo SQL:
   # SELECT  "questions".* FROM "questions" ORDER BY created_at desc
-  def self.last_questions(page)
+  scope :last_questions, -> (page) {
     Question.includes(:answers).order('created_at desc').page(page)
-  end
+  }
 
 end
