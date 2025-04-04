@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
+    <title>Questions</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -151,35 +151,6 @@
         <span class="fs-4">Site::Welcome#index</span>
       </a>
     </header>
-
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Find me in app/views/site/welcome/index.html.erb</h1>
-        <p class="col-md-8 fs-4">
-            <%# Verificações se um usuário esta logado, e se estiver, exibe o email %>
-            <% if user_signed_in? %>
-                Usuário Logado: <%= current_user.email %>
-            <% else %>
-                Nenhum Usuário Logado
-            <% end %>
-        </p>
-        <p class="col-md-8 fs-4">
-            <% if admin_signed_in? %>
-                Admin Logado: <%= current_admin.email %>
-            <% else %>
-                Nenhum Administrador Logado
-            <% end %>
-        </p>
-
-        <%= link_to admins_backoffice_welcome_index_path, class:"btn btn-primary btn-md" do %>
-            Página Administradores
-        <% end %>
-        <br>
-        <%= link_to users_backoffice_welcome_index_path, class:"btn btn-primary btn-md mt-2" do %>
-            Página Usuários
-        <% end %>
-      </div>
-    </div>
 
     <%= form_with url: site_search_path, local: true, method: :get do |form| %>
       <div class="row align-items-md-stretch">

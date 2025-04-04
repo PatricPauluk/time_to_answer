@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :site do
     get 'welcome/index'
+    # rota search que chama o controller search e a action questions
+    get 'search', to: 'search#questions'
   end
   namespace :users_backoffice do
     get 'welcome/index'
