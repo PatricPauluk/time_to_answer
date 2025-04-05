@@ -1,3 +1,11 @@
+<h6 class="mb-3">
+    <% unless params[:term] %>
+        Últimas perguntas cadastradas:
+    <% else %>
+        <%= "Resultados para: \"#{params[:term]}\"..." %>
+    <% end %>
+</h6>
+
 <% @questions.each do |question| %>
     <div class="card border-light mb-3">
         <div class="card-body">
