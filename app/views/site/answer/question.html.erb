@@ -1,1 +1,7 @@
-<h1>Você selecionou a resposta de ID: <%= params[:answer] %></h1>
+<% if @answer.correct %>
+    <h5>Você selecionou a resposta: "<%= @answer.description %>" ... E acertou!</h5>
+    <p>ID: <%= params[:answer_id] %></p>
+<% else %>
+    <h5>Você selecionou a resposta: "<%= @answer.description %>" ... Mas errou.</h5>
+    <p>ID: <%= params[:answer_id] %></p>
+<% end %>

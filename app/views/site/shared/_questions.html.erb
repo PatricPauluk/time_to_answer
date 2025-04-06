@@ -15,7 +15,7 @@
                     <% question.answers.each do |answer| %>
                         <li style="list-style:none;">
                             <div class="form-check">
-                                <%= radio_button_tag 'answer', answer.id, false, class:"form-check-input" %>
+                                <%= radio_button_tag 'answer_id', answer.id, false, class:"form-check-input" %>
                                 <label class="form-check-label">
                                     <%= answer.description %>
                                 </label>
