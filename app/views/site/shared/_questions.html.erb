@@ -7,16 +7,29 @@
 </h6>
 
 <% @questions.each do |question| %>
-    <div class="card border-light mb-3">
-        <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-body-secondary"><%= question.description %></h6>
-            <ul>
-            <% question.answers.each do |answer| %>
-                <li class="card-text"><%= answer.description %></li>
-            <% end %>
-            </ul>
+    <%= form_with url: site_answer_path, local: true do |form| %>
+        <div class="card border-light mb-3">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-body-secondary"><%= question.description %></h6>
+                <ul>
+                    <% question.answers.each do |answer| %>
+                        <li style="list-style:none;">
+                            <div class="form-check">
+                                <%= radio_button_tag 'answer', answer.id, false, class:"form-check-input" %>
+                                <label class="form-check-label">
+                                    <%= answer.description %>
+                                </label>
+                            </div>
+                        </li>
+                    <% end %>
+                    <li style="list-style:none;">
+                        <%= form.submit "Responder", class:"btn btn-primary btn-sm mt-3" %>
+                    </li>
+                </ul>
+                
+            </div>
         </div>
-    </div>
+    <% end %>
 <% end %>
 
 <div class="text-center">

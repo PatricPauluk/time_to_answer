@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
     # rota search que chama o controller search e a action questions
     get 'search', to: 'search#questions'
+    # rota answer que chama o controller answer e a action question
+    post 'answer', to: 'answer#question'
   end
   namespace :users_backoffice do
     get 'welcome/index'
