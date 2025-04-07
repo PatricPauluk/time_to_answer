@@ -8,6 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
     yarn
 
+RUN gem install nokogiri -v 1.15.6
+RUN gem install net-imap -v 0.4.17
+RUN update --system 3.3.22
+
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
