@@ -89,7 +89,7 @@ GEM
     execjs (2.10.0)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.1-x86_64-linux-gnu)
+    ffi (1.17.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.6)
@@ -305,4 +305,4 @@ RUBY VERSION
    ruby 2.7.8p225
 
 BUNDLED WITH
-   2.3.22
+   2.4.22

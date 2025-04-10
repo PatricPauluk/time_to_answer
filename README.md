@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Rails 7.1.x](https://img.shields.io/badge/Rails-5.2.8.1-brightgreen.svg)](https://rubyonrails.org/)
+[![Ruby 3.2.x](https://img.shields.io/badge/Ruby-2.7.8-blue.svg)](https://www.ruby-lang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Este README documenta os passos necessários para configurar e executar a aplicação MeuProjetoRails.
 
-Things you may want to cover:
+## Sumário
 
-* Ruby version
+1. [Pré-requisitos](#pré-requisitos)
+2. [Configuração](#configuração)
+3. [Criação e Inicialização do Banco de Dados](#criação-e-inicialização-do-banco-de-dados)
 
-* System dependencies
 
-* Configuration
+## 1. Pré-requisitos
 
-* Database creation
+Antes de começar, certifique-se de que as seguintes ferramentas estejam instaladas em sua máquina:
 
-* Database initialization
+* **Ruby:** Recomenda-se a versão `2.7.8`. Você pode verificar sua versão com o comando:
+  ```bash
+  ruby -v
 
-* How to run the test suite
+## 2. Configuração
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+... Em construção
