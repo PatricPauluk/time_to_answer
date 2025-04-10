@@ -4,7 +4,7 @@
 [![Ruby 3.2.x](https://img.shields.io/badge/Ruby-2.7.8-blue.svg)](https://www.ruby-lang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Este README documenta os passos necessários para configurar e executar a aplicação MeuProjetoRails.
+Este README documenta os passos necessários para configurar e executar a aplicação time_to_answer.
 
 ## 1. Pré-requisitos
 
