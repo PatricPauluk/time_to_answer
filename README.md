@@ -4,6 +4,8 @@
 [![Ruby 3.2.x](https://img.shields.io/badge/Ruby-2.7.8-blue.svg)](https://www.ruby-lang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+**PROJETO EM CONSTRUÇÃO**
+
 Este README documenta os passos necessários para configurar e executar a aplicação time_to_answer.
 
 ## 1. Pré-requisitos
@@ -33,8 +35,6 @@ apt-get install -y git ruby-dev build-essential libssl-dev libreadline-dev zlib1
 
 **b) Instalar o rbenv:**
 
-Bash
-
 ```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
@@ -49,8 +49,6 @@ git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-b
 ```
 
 Antes de instalar o Ruby, precisamos instalar as dependências curl e wget:
-
-**Execute os seguintes comandos:**
 
 ```bash
 apt-get update
@@ -141,5 +139,5 @@ rails s
 ```
 
 **Login com usuário Administrador:**
-Login: admin@admin.com
-Senha: 111111
+
+Login: admin@admin.com | Senha: 111111
