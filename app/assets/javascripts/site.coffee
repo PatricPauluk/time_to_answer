@@ -3,3 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 //= require color-modes
 //= require bootstrap/dist/js/bootstrap.bundle
+//= require jquery/dist/jquery
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl

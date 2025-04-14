@@ -7,9 +7,11 @@
 </h6>
 
 <% @questions.each do |question| %>
-    <%# local: true - o controller processa uma view .html.erb %>
-    <%# local: false - o controller processa uma view .js.erb %>
-    <%= form_with url: site_answer_path, local: true do |form| %>
+    <%# 
+        local: true - o controller processa uma view .html.erb
+        local: false - o controller processa uma view .js.erb
+    %>
+    <%= form_with url: site_answer_path do |form| %>
         <div class="card border-light mb-3">
             <div class="card-body">
                 <h6 class="card-subtitle mb-2 text-body-secondary"><%= question.description %></h6>
@@ -25,7 +27,7 @@
                         </li>
                     <% end %>
                     <li style="list-style:none;">
-                        <%= form.submit "Responder", class:"btn btn-primary btn-sm mt-3" %>
+                        <%= form.submit "Responder", class:"btn btn-outline-primary btn-sm mt-3", id:"submit_#{question.id}" %>
                     </li>
                 </ul>
                 
