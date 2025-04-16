@@ -1,9 +1,5 @@
 <h6 class="mb-3">
-    <% unless params[:term] %>
-        Últimas perguntas cadastradas:
-    <% else %>
-        <%= "Resultados para: \"#{params[:term]}\"..." %>
-    <% end %>
+    <%= msg_jumbotron %>
 </h6>
 
 <% @questions.each do |question| %>
@@ -14,7 +10,9 @@
     <%= form_with url: site_answer_path do |form| %>
         <div class="card border-light mb-3">
             <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-body-secondary"><%= question.description %></h6>
+                <h5 class="card-title"><%= question.description %></h5>
+                <%= link_to question.subject.description, site_search_subject_path(question.subject_id, question.subject.description),
+                                                          class:"card-subtitle mb-5 text-body-secondary" %>
                 <ul>
                     <% question.answers.each do |answer| %>
                         <li style="list-style:none;">

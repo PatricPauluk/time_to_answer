@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
     # rota search que chama o controller search e a action questions
     get 'search', to: 'search#questions'
+    # roda seach_subject com parâmetros que chama o controller search e a action subject
+    get 'search_subject/:subject_id/:subject', to: 'search#subject', as: 'search_subject'
     # rota answer que chama o controller answer e a action question
     post 'answer', to: 'answer#question'
   end

@@ -20,13 +20,17 @@ class Question < ApplicationRecord
   # Exemplo SQL:
   # SELECT  "questions".* FROM "questions" WHERE (lower(description) LIKE '%voluptatum%')
   scope :_search_, -> (page, term) {
-    Question.includes(:answers).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)
+    Question.includes(:answers, :subject).where("lower(description) LIKE ?", "%#{term.downcase}%").page(page)
+  }
+
+  scope :_search_subject_, -> (page, subject_id) {
+    includes(:answers, :subject).where(subject_id: subject_id).page(page)
   }
 
   # Exemplo SQL:
   # SELECT  "questions".* FROM "questions" ORDER BY created_at desc
   scope :last_questions, -> (page) {
-    Question.includes(:answers).order('created_at desc').page(page)
+    Question.includes(:answers, :subject).order('created_at desc').page(page)
   }
 
 end
