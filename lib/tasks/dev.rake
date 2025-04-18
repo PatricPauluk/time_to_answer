@@ -81,6 +81,15 @@ namespace :dev do
       end
     end
   end
+
+  desc "Reseta contador dos assuntos"
+  task reset_subject_counter: :environment do # call: rails dev:reset_subject_counter
+    show_spinner("Resetando contador dos assuntos...") do
+      Subject.all.each do |subject|
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
   
   # Tudo abaixo de private é privado apenas este arquivo -----------------------------------------------------------------------------
   private

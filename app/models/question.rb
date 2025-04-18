@@ -2,8 +2,9 @@ class Question < ApplicationRecord
   # torna o assunto opcional a ser informado (não vamos utilizar nessa situação, mas fica como exemplo)
   # belongs_to :subject, optional: true 
   
-  # torna o assunto obrigatorio a ser informado, reforça que subject_id tem muitas questions, evitando conflitos
-  belongs_to :subject, inverse_of: :questions
+  # torna o assunto obrigatorio a ser informado, informa que tera uma contagem obrigatória do assunto (deve ser criada no banco), ...
+  #... reforça que subject_id tem muitas questions, evitando conflitos
+  belongs_to :subject, counter_cache: true, inverse_of: :questions
 
   # uma pergunta tem muitas respostas
   has_many :answers 
