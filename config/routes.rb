@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :subjects
     resources :questions
   end
-  devise_for :admins
+
+  # skip: [registrations] remove a possibilidade de criar um usuário sem estar logado
+  devise_for :admins, skip: [:registrations]
   devise_for :users
 
   # Mapeamento, traduzindo o caminho de site/welcome#index como inicio.
