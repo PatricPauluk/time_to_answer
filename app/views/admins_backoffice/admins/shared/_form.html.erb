@@ -19,7 +19,7 @@
 <%# admins_backoffice é o nome do namespace, consegue identificar que o propósito da página (criar ou editar um admin) atrávés do nome da ação (action_name) %>
 <%= form_with(model: [ :admins_backoffice, @admin ], local: true) do |form| %>
 
-    <div class="mb-3 mt-3">
+    <div class="mb-3">
         <%= form.label :email, class:"form-label" %>
         <%= form.text_field :email, class:"form-control", placeholder:"Email do administrador" %>
     </div>

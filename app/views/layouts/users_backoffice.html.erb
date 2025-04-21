@@ -158,11 +158,18 @@
             <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                  <%= link_to users_backoffice_welcome_index_path, class:"nav-link d-flex align-items-center gap-2 active" do %>
                     <svg class="bi"><use xlink:href="#house-fill"/></svg>
                     Dashboard
-                  </a>
+                  <% end %>
                 </li>
+                <li class="nav-item">
+                  <%= link_to users_backoffice_profile_path, class:"nav-link d-flex align-items-center gap-2 active" do %>
+                    <svg class="bi"><use xlink:href="#people"/></svg>
+                    Editar Perfil
+                  <% end %>
+                </li>
+                
 
               <hr class="my-3">
 
@@ -182,7 +189,6 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Passou por layout users_backoffice</h1>
             <%# O uso desse layout é especificado em app/controllers/users_backoffice/welcome_controller.rb %>
           </div>
           <%= yield %>
