@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :users_backoffice do
     get 'welcome/index'
     get 'profile', to: 'profile#edit'
+    patch 'profile', to: 'profile#update' # patch/put para atualizar um usuário, post para criar um (ambos por baixo dos panos)
   end
   namespace :admins_backoffice do # referente a app/controllers/admins_backoffice
     get 'welcome/index' # Dashboard

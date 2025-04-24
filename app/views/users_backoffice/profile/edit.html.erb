@@ -1,22 +1,49 @@
 <h1>Editar Usuário</h1>
-<form>
+
+<%# Exibe uma lista de erros ao usuário, caso houver %>
+<% if @user.errors.any? %>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>
+
+<%= form_with(url: users_backoffice_profile_path, model: @user, local: true) do |form| %>
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="first-name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="first-name">
+            <%= form.label :first_name, class:"form-label" %>
+            <%= form.text_field :first_name, class:"form-control" %>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="last-name" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="last-name">
+            <%= form.label :last_name, class:"form-label" %>
+            <%= form.text_field :last_name, class:"form-control" %>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email">
+            <%= form.label :email, class:"form-label" %>
+            <%= form.text_field :email, class:"form-control", readonly: true %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <%= form.label :password, class:"form-label" %>
+            <%= form.password_field :password, class:"form-control", placeholder:"Alterar senha atual" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <%= form.label :password_confirmation, class:"form-label" %>
+            <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirmação da nova senha" %>
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<% end %>
