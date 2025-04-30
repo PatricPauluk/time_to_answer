@@ -33,23 +33,40 @@
             <%= form.text_field :email, class:"form-control", readonly: true %>
         </div>
     </div>
-    <%= form.fields_for :user_profile do |profile_for| %>
+    <%= form.fields_for :user_profile do |profile_form| %>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <%= profile_for.label :address, class:"form-label" %>
-                <%= profile_for.text_field :address, class:"form-control" %>
+                <%= profile_form.label :address, class:"form-label" %>
+                <%= profile_form.text_field :address, class:"form-control" %>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <%= profile_for.label :gender, class:"form-label" %>
-                <%= profile_for.text_field :gender, class:"form-control" %>
+                <%= profile_form.label :gender, class:"form-label" %>
+                <div class="form-check">
+                    <%= profile_form.radio_button :gender, "M", class:"form-check-input" %>
+                    <label class="form-check-label">
+                        Masculino
+                    </label>
+                </div>
+                <div class="form-check">
+                    <%= profile_form.radio_button :gender, "F", class:"form-check-input" %>
+                    <label class="form-check-label">
+                        Feminino
+                    </label>
+                </div>
+                <div class="form-check">
+                    <%= profile_form.radio_button :gender, "X", class:"form-check-input" %>
+                    <label class="form-check-label">
+                        Outro
+                    </label>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <%= profile_for.label :birthdate, class:"form-label" %>
-                <%= profile_for.text_field :birthdate, class:"form-control" %>
+                <%= profile_form.label :birthdate, class:"form-label" %>
+                <%= profile_form.text_field :birthdate, class:"form-control" %>
             </div>
         </div>
     <% end %>
