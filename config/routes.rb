@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # Mapeamento, traduzindo o caminho de site/welcome#index como inicio.
   # Acessa como: http://localhost:3000/inicio
   get 'inicio', to: 'site/welcome#index'
+  get 'backoffice', to: 'admins_backoffice/welcome#index'
 
   # Define a rota padrão para Welcome Index
   root to: 'site/welcome#index' # nome_controler#pagina
