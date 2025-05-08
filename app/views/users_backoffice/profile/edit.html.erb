@@ -66,7 +66,8 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <%= profile_form.label :birthdate, class:"form-label" %>
-                <%= profile_form.text_field :birthdate, value: I18n.l(@user.user_profile.birthdate), class:"form-control datepicker" %>
+                <%= profile_form.text_field :birthdate, value: I18n.l(@user.user_profile.birthdate) unless @user.user_profile.birthdate.blank?,
+                                                        class:"form-control datepicker" %>
             </div>
         </div>
     <% end %>
