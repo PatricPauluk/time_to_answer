@@ -156,7 +156,17 @@
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-              <ul class="nav flex-column">
+              <ul class="nav-item nav flex-column">
+                <li class="d-flex align-items-center mb-3">
+                  <div class="rounded-circle bg-secondary d-flex justify-content-center align-items-center me-2 ms-3" style="width: 60px; height: 60px;">
+                    <%= link_to image_tag('profile-icon.png', alt:"...", class:"rounded-circle", style: "width: 100%; height: 100%; object-fit: cover;"), '#', "data-bs-toggle":"modal", "data-bs-target":"#avatarModal" %>
+                  </div>
+                  <div>
+                    <small class="text-muted">Seja bem-vindo,</small>
+                    <p class="mb-0 fw-bold"><%= current_user.first_name %></p>
+                  </div>
+                </li>
+                <hr class="my-3">
                 <li class="nav-item">
                   <%= link_to users_backoffice_welcome_index_path, class:"nav-link d-flex align-items-center gap-2 active" do %>
                     <svg class="bi"><use xlink:href="#house-fill"/></svg>
@@ -217,5 +227,24 @@
         $('.datepicker').datepicker();
       });
     <% end %>
+    
+    <%# Modal do usuário %>
+    <div class="modal fade" id="avatarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="avatarModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

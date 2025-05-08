@@ -18,7 +18,7 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_ba
                                                   site.js site.css )
 
 # Arquivos em /lib/assets devem ser pré-compilados aqui
-Rails.application.config.assets.precompile += %w( color-modes.js dashboard.js dashboard.css dashboard.rtl.css custom.css sign-in.css bootstrap-logo.svg )
+Rails.application.config.assets.precompile += %w( color-modes.js dashboard.js dashboard.css dashboard.rtl.css custom.css sign-in.css bootstrap-logo.svg profile-icon.png)
 
 # Arquivos em /vendor/assets devem ser pré-compilados aqui
 # Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery.js bootstrap-4.3.1/bootstrap.js bootstrap-4.3.1/bootstrap.css )
