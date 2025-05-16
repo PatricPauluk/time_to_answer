@@ -159,7 +159,7 @@
               <ul class="nav-item nav flex-column">
                 <li class="d-flex align-items-center mb-3">
                   <div class="rounded-circle bg-secondary d-flex justify-content-center align-items-center me-2 ms-3" style="width: 60px; height: 60px;">
-                    <%= link_to image_tag(avatar_url, alt:"...", class:"rounded-circle",
+                    <%= link_to image_tag(avatar_url, alt:"...", class:"rounded-circle", id:"avatarPictureMenu",
                                           style: "width: 100%; height: 100%; object-fit: cover;"), '#',
                                           "data-bs-toggle":"modal", "data-bs-target":"#avatarModal" %>
                   </div>
@@ -234,7 +234,7 @@
     <div class="modal fade" id="avatarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <%= form_with(url: users_backoffice_profile_path, model: current_user, local: true) do |form| %>
+          <%= form_with(url: users_backoffice_profile_path, model: current_user) do |form| %>
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="avatarModalLabel">Alterar foto do perfil</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -243,7 +243,7 @@
               <%= form.fields_for :user_profile do |profile_form| %>
                 <div class="row">
                     <div class="col-md-12 mb-3">
-                        <%= image_tag(avatar_url, alt:"...", class:"rounded-circle mb-3",
+                        <%= image_tag(avatar_url, alt:"...", class:"rounded-circle mb-3", id:"avatarPictureModal",
                                                           style: "width: 100px; height: 100px; object-fit: cover;") %>
                         <%= profile_form.label :avatar, class:"form-label" %>
                         <%= profile_form.file_field :avatar, class:"form-control" %>

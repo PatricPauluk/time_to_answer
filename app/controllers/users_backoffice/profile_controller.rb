@@ -10,9 +10,8 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     def update
         if @user.update(params_user)
             bypass_sign_in(@user) # não desloga usuário ao alterar a senha
-            if params_user[:user_profile_attributes][:avatar]
-                redirect_to users_backoffice_welcome_index_path, notice: "Avatar atualizado com sucesso."
-            else
+            # Se o atributo avatar não for atualizado, redireciona para a página edit
+            unless params_user[:user_profile_attributes][:avatar]
                 redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso."
             end
         else

@@ -1,0 +1,11 @@
+$('#avatarModal').modal('hide');
+
+document.getElementById("avatarPictureMenu").src = "<%= url_for(@user.user_profile.avatar) %>";
+document.getElementById("avatarPictureModal").src = "<%= url_for(@user.user_profile.avatar) %>";
+
+$.bootstrapGrowl(" Avatar do usuário atualizado com sucesso.", {
+    type: 'info', // (null, 'info', 'error', 'success')
+    align: 'right', // ('left', 'right', or 'center')
+    allow_dismiss: true,
+    stackup_spacing: 10 // spacing between consecutively stacked growls.
+});
