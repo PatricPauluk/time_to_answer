@@ -1,5 +1,23 @@
-<h1>UsersBackoffice::Welcome#index</h1>
-<p>Bem vindo <%= current_user.first_name %>!</p>
-
-<%# Exibe o email do usuário atual %>
+<h1>Bem vindo <%= current_user.first_name %>!</h1>
 <p>Logado como: <%= current_user.email %></p>
+
+<div class="row">
+    <div class="card mx-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @user_statistic.right_questions %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Questões corretas</h6>
+        </div>
+    </div>
+    <div class="card mx-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @user_statistic.wrong_questions %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Questões incorretas</h6>
+        </div>
+    </div>
+    <div class="card mx-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @user_statistic.total_questions %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Todas as questões</h6>
+        </div>
+    </div>
+</div>
