@@ -5,8 +5,8 @@ class AdminsBackoffice::WelcomeController < AdminsBackofficeController
   # layout 'admins_backoffice'
   # O layout foi especificado novamente em app/controllers/admins_backoffice_controller.rb
   def index
-    # find_by_event, pois event é o nome do campo no active record, assim é retornada uma busca para exibir na view
-    @total_users = AdminStatistic.find_by_event(AdminStatistic::EVENTS[:total_users]).value
-    @total_questions = AdminStatistic.find_by_event(AdminStatistic::EVENTS[:total_questions]).value
+    # busca a quantidade de questões e usuários para a view, através dos Scopes em app/models/admin_statistic.rb
+    @total_users = AdminStatistic.total_users
+    @total_questions = AdminStatistic.total_questions
   end
 end
