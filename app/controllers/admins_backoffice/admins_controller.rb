@@ -40,6 +40,10 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   
   def update
     if @admin.update(params_admin)
+      # Envia um email para o admin informando que seus dados foram alterados
+      # O current_admin é o admin que está logado, e @admin é o admin que foi atualizado
+      # O método deliver_now envia o email imediatamente
+      AdminMailer.update_email(current_admin, @admin).deliver_now
       redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
     else
       render :edit
